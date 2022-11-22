@@ -86,11 +86,13 @@ var upperCasedCharacters = [
   'X',
   'Y',
   'Z'
+
 ];
+var answer = prompt("How many characters would you like your password to contain?");
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var answer = prompt("How many characters would you like your password to contain?");
+
 var finalOptions = '';
 generatePassword(finalOptions);
 
@@ -98,13 +100,20 @@ return answer;
 }
 
 console.log(getPasswordOptions());
-
+//console.log(Math.floor(Math.random() * specialCharacters.length)) //Test code- This is how we randomly select letters
+//from each array 
 
 // Function for getting a random element from an array
 // HZ: Some variation of math.random to randomly select symbols from above.
 function getRandom(arr) {
+  for (i = 0; i < answer; i++) {
+  var x = Math.floor(Math.random() * 20);
+    console.log(upperCasedCharacters[x])
+  }
 
 }
+
+getRandom(upperCasedCharacters);
 
 // Function to generate password with user input
 function generatePassword() {
