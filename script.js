@@ -88,7 +88,11 @@ var upperCasedCharacters = [
   'Z'
 
 ];
-var answer = prompt("How many characters would you like your password to contain?");
+var answer = prompt("How many uppercase characters would you like your password to contain?");
+var answerSpecial = confirm("Click OK to confirm including special characters");
+var answerNumeric = confirm("Click OK to confirm including numeric characters");
+var answerLowercase = confirm("Click OK to confirm including lowercase characters");
+var answerUppercase = confirm("Click OK to confirm including uppercase characters");
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -102,18 +106,53 @@ return answer;
 console.log(getPasswordOptions());
 //console.log(Math.floor(Math.random() * specialCharacters.length)) //Test code- This is how we randomly select letters
 //from each array 
+var letters = []
+
 
 // Function for getting a random element from an array
 // HZ: Some variation of math.random to randomly select symbols from above.
-function getRandom(arr) {
-  for (i = 0; i < answer; i++) {
-  var x = Math.floor(Math.random() * 20);
-    console.log(upperCasedCharacters[x])
+function getRandom(arrU, arrS, arrN, arrL) 
+{for (i = 0; i < answer; i++) {
+  var x = Math.floor(Math.random() * arrU.length);
+    letters.push(arrU[x])
   }
 
+  var y = Math.floor(Math.random() * arrS.length);
+if (answerSpecial == true){
+  console.log(arrS[y])
 }
 
-getRandom(upperCasedCharacters);
+
+
+var z = Math.floor(Math.random() * arrN.length);
+if (answerNumeric == true){
+  console.log(arrN[z])
+}
+
+var a = Math.floor(Math.random() * arrL.length);
+if (answerLowercase == true){
+  console.log(arrL[a])
+}
+
+
+console.log(letters.join('') + arrS[y] + arrN[z] + arrL[a])
+
+var pass = []
+
+
+
+// console.log(pass.join(''));
+
+ console.log(pass.toString());
+
+ 
+ 
+}
+
+getRandom(upperCasedCharacters, specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+
+// function end
+
 
 // Function to generate password with user input
 function generatePassword() {
