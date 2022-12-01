@@ -88,7 +88,8 @@ var upperCasedCharacters = [
   'Z'
 
 ];
-var answer = prompt("How many uppercase characters would you like your password to contain?");
+
+var answer = prompt("How many characters would you like your password to contain?");
 var answerSpecial = confirm("Click OK to confirm including special characters");
 var answerNumeric = confirm("Click OK to confirm including numeric characters");
 var answerLowercase = confirm("Click OK to confirm including lowercase characters");
@@ -119,23 +120,35 @@ function getRandom(arrU, arrS, arrN, arrL)
 
   var y = Math.floor(Math.random() * arrS.length);
 if (answerSpecial == true){
-  console.log(arrS[y])
+  console.log(arrS[y]);
+  letters.shift(arrU);
 }
 
 
 
 var z = Math.floor(Math.random() * arrN.length);
 if (answerNumeric == true){
-  console.log(arrN[z])
+  console.log(arrN[z]);
+  letters.shift(arrU);
 }
 
 var a = Math.floor(Math.random() * arrL.length);
 if (answerLowercase == true){
-  console.log(arrL[a])
+  console.log(arrL[a]);
+  letters.shift(arrU);
 }
 
+if (answer > 64){
+  alert("Password cannnot exceed 64 characters")
+};
 
-console.log(letters.join('') + arrS[y] + arrN[z] + arrL[a])
+if (answer < 10){
+  alert("Password cannnot be less than 10 characters");
+};
+
+var passwordText = document.querySelector('#password');
+console.log(letters.join('') + arrS[y] + arrN[z] + arrL[a]);
+passwordText.append(letters.join('') + arrS[y] + arrN[z] + arrL[a]);
 
 var pass = []
 
